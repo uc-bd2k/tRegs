@@ -1,0 +1,19 @@
+Package: tRegs
+Type: Package
+Title: Signatures of TF regulatory activiy
+Version: 1.0
+Date: 2017-03-16
+Author: Mehdi Fazel Najafabadi, Mario Medvedovic
+Maintainer: Mehdi Fazel Najafabadi <mbfazel@gmail.com>
+Description: The package provides tools for constructing gene-specific TF binding scores from ChIP-seq data (TREG binding scores) and for constructing TREG signatures of TF regulatory activity by integrating TREG binding scores with suitable matched differential gene expression profiles.
+Depends:
+    R (>= 3.3.1),
+	GenomicFeatures (>= 1.24.5),
+	org.Hs.eg.db,
+	org.Mm.eg.db,
+	org.Rn.eg.db
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
+Packaged: 2017-03-16 10:18:15 UTC; Mehdi Fazel Najafabadi
