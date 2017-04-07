@@ -28,8 +28,13 @@
 #' @references ...
 #' @seealso ...
 #' @keywords annotation
+<<<<<<< HEAD
+#' @importFrom GenomicFeatures transcripts
+#' @importFrom IRanges IRanges findOverlaps
+=======
 # importFrom GenomicFeatures transcripts
 # importFrom IRanges IRanges findOverlaps
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 #' @export
 #' @examples
 #' ## not run
@@ -59,7 +64,11 @@ chipSeqWeightedSum <- function(ChipList,verbose=FALSE, genome=NULL) {
 		}
 		res <- list(p=p,lamda=lamda)
 		res
+<<<<<<< HEAD
+	}
+=======
 	} 
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 
     emExpNormal <- function(data,p=0.1,lamda=0.1,mean=2.0,var=1.0,steps=1000,stopCond=0.01) {
 	      likelihood1 <- sum(log(p*lamda*exp(-lamda*data)+(1-p)*dnorm(data,mean=mean,sd=sqrt(var))))
@@ -81,7 +90,11 @@ chipSeqWeightedSum <- function(ChipList,verbose=FALSE, genome=NULL) {
 	      }
 	      res <- list(p=p,lamda=lamda,mean=mean,var=var)
 	      res
+<<<<<<< HEAD
+      }
+=======
       } 
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 
     emExpNormal.prior <- function(data,p=0.1,lamda=0.1,mean=2.0,var=1.0,steps=20,stopCond=0.01,background=3,probs=0.5) {
 	    if(background <= 0) background <- 0.1
@@ -107,12 +120,20 @@ chipSeqWeightedSum <- function(ChipList,verbose=FALSE, genome=NULL) {
 	    }
 	    res <- list(p=p, lamda=lamda, mean=mean, var=var)
 	    res
+<<<<<<< HEAD
+    }
+=======
     } 
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 
     estimate.background <- function(data,para) {
 	    minDist <- min(as.numeric(data[,"TSSDist"]))
 	    maxDist <- max(as.numeric(data[,"TSSDist"]))
+<<<<<<< HEAD
+
+=======
 	    
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
  	    windowsize <- table(data[,"RefID"])
 	    windowsize <- max(windowsize)
 	    windowsize <- as.integer((maxDist-minDist)/windowsize)
@@ -129,7 +150,11 @@ chipSeqWeightedSum <- function(ChipList,verbose=FALSE, genome=NULL) {
 	    Weights <- Weights/(Weights+(1-para$p)/(maxDist-minDist))
 	    res <- Weights*peaks
 	    res <- sum(res)
+<<<<<<< HEAD
+
+=======
 	    
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 	    res
     }
 
@@ -155,14 +180,22 @@ chipSeqWeightedSum <- function(ChipList,verbose=FALSE, genome=NULL) {
 	    res <- list(Score=Weighted.Sum,Uniform=uniform)
 	    res
     }
+<<<<<<< HEAD
+
+=======
   
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
     WeightedSum.Prob <- function(data,prob=0.005,prior=TRUE,log=TRUE) {
 	data.2 <- data[[1]]
 	if(log) {
 		data.2[,"Score"] <- log(as.numeric(data.2[,"Score"])+1)
 		backgrounds <- log(data[[2]]+1)
 	} else backgrounds <- data[[2]]
+<<<<<<< HEAD
+
+=======
 	
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 	if(prior) {para <- emExpNormal.prior(as.numeric(data.2[,"Score"]), background=backgrounds,probs=prob)
 	} else para <- emExpNormal(as.numeric(data.2[,"Score"]))
 	Prob <- (1-para$p)*dnorm(as.numeric(data.2[,"Score"]), mean=para$mean,sd=sqrt(para$var))

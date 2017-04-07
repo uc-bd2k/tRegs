@@ -5,7 +5,11 @@
 \title{A function to match each peak to associated genes in terms of RefID.}
 \usage{
 annotateChipSeqPeaks(chip.seq, transcriptDB = NULL,
+<<<<<<< HEAD
+  distanceRange = c(-1000000, 1000000))
+=======
   distanceRange = c(-1e+06, 1e+06))
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 }
 \arguments{
 \item{chip.seq}{A matrix listing all CHIP-Seq peaks in which the chromosome

@@ -2,3 +2,15 @@
 
 export(annotateChipSeqPeaks)
 export(chipSeqWeightedSum)
+<<<<<<< HEAD
+export(tregGRS)
+importFrom(AnnotationDbi,select)
+importFrom(GenomicFeatures,transcripts)
+importFrom(IRanges,IRanges)
+importFrom(IRanges,NCList)
+importFrom(IRanges,findOverlaps)
+importFrom(IRanges,values)
+importFrom(preprocessCore,normalize.quantiles)
+importFrom(qvalue,qvalue)
+=======
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2

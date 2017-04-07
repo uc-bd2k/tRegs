@@ -25,6 +25,12 @@
 #'
 #' @author Mehdi Fazel-Najafabadi, Mario Medvedovic
 #'
+<<<<<<< HEAD
+#' @importFrom GenomicFeatures transcripts
+#' @importFrom IRanges IRanges findOverlaps NCList values
+#' @importFrom AnnotationDbi select
+=======
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 #' @export
 #' @examples
 #' ## not run
@@ -43,8 +49,11 @@ annotateChipSeqPeaks <- function(chip.seq, transcriptDB=NULL, distanceRange=c(-1
 	refSeqs
 	}
 	refSeqs <- getRefSeqs(genomeDB)
+<<<<<<< HEAD
+=======
 # importFrom GenomicFeatures transcripts 
 # importFrom IRanges IRanges findOverlaps NCList values
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 	allchr <- unique(chip.seq[,1])
 	exps = matrix(NA,ncol=5)
  	colnames(exps) <- c("RefID","GeneID","Chromosome","TSSDist","Score")
@@ -73,7 +82,11 @@ annotateChipSeqPeaks <- function(chip.seq, transcriptDB=NULL, distanceRange=c(-1
 	  starts1 <- temp[tables[,1],"Start"]
 	  starts2 <- temp[tables[,1],"End"]
 	  distances <- as.integer(abs((starts1+starts2)/2-distances))
+<<<<<<< HEAD
+	  tables <- cbind(tables,Dist=distances,Score=temp[tables[,1],"Score"])
+=======
 	  tables<-cbind(tables,Dist=distances,Score=temp[tables[,1],"Score"])
+>>>>>>> 78f437d6e9df8be758b38ccc911f460bf8ad6de2
 	  rowID <- paste(IRanges::values(genome)[tables[,2],"tx_name"], IRanges::values(genome)[tables[,2],"tx_id"],tables[,3],tables[,1],sep="-")
 	  if(length(rowID)>length(unique(rowID))) cat(chr,"\n")
  	  tables <- data.frame(RefID=IRanges::values(genome)[tables[,2],"tx_name"],GeneID=gene.id[tables[,2]],Chromosome=as.character(rep(chr,dim(tables)[1])),
